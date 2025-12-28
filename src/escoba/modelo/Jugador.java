@@ -5,8 +5,6 @@ public class Jugador {
     private String nombre;
     private Carta[] mano;
     private int numCartasMano;
-    // Diagrama dice que jugador devuelve Baza[] en consultarBazas()
-    // Así que usaremos un array de Bazas
     private Baza[] misBazas; 
     private int numBazas;
     
@@ -14,7 +12,7 @@ public class Jugador {
         this.nombre = nombre;
         this.mano = new Carta[3];
         this.numCartasMano = 0;
-        this.misBazas = new Baza[50]; // Tamaño suficiente para una partida
+        this.misBazas = new Baza[50]; 
         this.numBazas = 0;
     }
 
@@ -31,24 +29,30 @@ public class Jugador {
 
     public Carta jugarCarta(Carta cartaAJugar) {
         int pos = -1;
-        for (int i = 0; i < numCartasMano; i++) {
+        int i = 0;
+        boolean encontrado = false;
+
+        // Búsqueda SIN break
+        while (i < numCartasMano && !encontrado) {
             if (mano[i].equals(cartaAJugar)) {
                 pos = i;
-                break;
+                encontrado = true;
+            } else {
+                i++;
             }
         }
+
         if (pos != -1) {
             Carta c = mano[pos];
-            for (int i = pos; i < numCartasMano - 1; i++) {
-                mano[i] = mano[i + 1];
+            // Desplazamiento
+            for (int j = pos; j < numCartasMano - 1; j++) {
+                mano[j] = mano[j + 1];
             }
             numCartasMano--;
             return c;
         }
-        return null; // Obligatorio por compilador, aunque no debería pasar
+        return null; 
     }
-    
-    // --- Métodos de Bazas ---
     
     public void agregarBaza(Baza baza) {
         if (numBazas < misBazas.length) {
@@ -58,22 +62,19 @@ public class Jugador {
     }
     
     public Baza[] consultarBazas() {
-        // Devuelve copia del array
         Baza[] copia = new Baza[numBazas];
         for (int i = 0; i < numBazas; i++) {
-            // Idealmente clonaríamos la baza, pero copia de referencia vale para un 7
             copia[i] = misBazas[i]; 
         }
         return copia;
     }
 
-    // --- Métodos de Conteo (Delegados) ---
-    // Recorren todas las bazas ganadas y suman
-    
     public int consultarEscobas() {
         int total = 0;
         for(int i=0; i<numBazas; i++) {
-            if (misBazas[i].fueEscoba()) total++;
+            if (misBazas[i].fueEscoba()) {
+                total++;
+            }
         }
         return total;
     }
@@ -103,10 +104,17 @@ public class Jugador {
     }
     
     public boolean tieneSieteOros() {
-        for(int i=0; i<numBazas; i++) {
-            if (misBazas[i].tieneSieteOros()) return true;
+        boolean tiene = false;
+        int i = 0;
+        // Búsqueda sin break
+        while(i < numBazas && !tiene) {
+            if (misBazas[i].tieneSieteOros()) {
+                tiene = true;
+            } else {
+                i++;
+            }
         }
-        return false;
+        return tiene;
     }
     
     public boolean estaSinCartas() {
