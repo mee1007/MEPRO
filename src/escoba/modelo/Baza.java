@@ -6,7 +6,7 @@ public class Baza {
 
     private Carta[] cartas;
     private int numCartas;
-    private boolean esEscoba; // Atributo necesario para marcarEscoba
+    private boolean esEscoba; 
 
     public Baza() {
         this.cartas = new Carta[40];
@@ -33,7 +33,6 @@ public class Baza {
         return numCartas;
     }
     
-    // Alias para cumplir con test SignaturasBazaTest ("consultarCartas")
     public Carta[] consultarCartas() {
         Carta[] copia = new Carta[numCartas];
         for(int i=0; i<numCartas; i++){
@@ -45,7 +44,9 @@ public class Baza {
     public int contarOros() {
         int c = 0;
         for (int i = 0; i < numCartas; i++) {
-            if (cartas[i].palo() == Palo.OROS) c++;
+            if (cartas[i].palo() == Palo.OROS) {
+                c++;
+            }
         }
         return c;
     }
@@ -53,49 +54,52 @@ public class Baza {
     public int contarSietes() {
         int c = 0;
         for (int i = 0; i < numCartas; i++) {
-            if (cartas[i].puntuacion() == 7) c++;
+            if (cartas[i].puntuacion() == 7) {
+                c++;
+            }
         }
         return c;
     }
 
     public boolean tieneSieteOros() {
-        for (int i = 0; i < numCartas; i++) {
-            if (cartas[i].puntuacion() == 7 && cartas[i].palo() == Palo.OROS) return true;
+        boolean encontrado = false;
+        int i = 0;
+        // Búsqueda sin break
+        while (i < numCartas && !encontrado) {
+            if (cartas[i].puntuacion() == 7 && cartas[i].palo() == Palo.OROS) {
+                encontrado = true;
+            } else {
+                i++;
+            }
         }
-        return false;
+        return encontrado;
     }
     
-    // Método clonar requerido
     public Baza clonar() {
         Baza nueva = new Baza();
         nueva.esEscoba = this.esEscoba;
-        // Copia profunda de estructura, aunque Carta es inmutable (record)
         for(int i=0; i<this.numCartas; i++) {
             nueva.agregarCarta(this.cartas[i]);
         }
         return nueva;
     }
 
-    // Overrides generados básicos (necesarios para tests)
     @Override
     public String toString() {
-        String s = "Baza [numCartas=" + numCartas + ", esEscoba=" + esEscoba + "]";
-        return s;
+        return "Baza [numCartas=" + numCartas + ", esEscoba=" + esEscoba + "]";
     }
 
     @Override
     public int hashCode() {
-        // Implementación sencilla para estudiante
         return Objects.hash(numCartas, esEscoba);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null) return false;
-        if (getClass() != obj.getClass()) return false;
+        if (this == obj) { return true; }
+        if (obj == null) { return false; }
+        if (getClass() != obj.getClass()) { return false; }
         Baza other = (Baza) obj;
         return esEscoba == other.esEscoba && numCartas == other.numCartas;
-        // Un equals de estudiante no suele comparar arrays profundos a menos que se pida
     }
 }
