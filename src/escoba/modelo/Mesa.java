@@ -2,7 +2,7 @@ package escoba.modelo;
 
 /**
  * Mesa de juego.
- * Implementación basada en contadores (sin uso de nulls).
+ * Implementación basada en contadores (sin nulls, sin breaks).
  */
 public class Mesa {
 
@@ -16,8 +16,6 @@ public class Mesa {
     }
 
     public void ponerCarta(Carta carta) {
-        // Usamos el contador para saber dónde escribir
-        // Evitamos escribir si estamos llenos (seguridad básica)
         if (numCartas < CAPACIDAD) {
             cartasEnMesa[numCartas] = carta;
             numCartas++;
@@ -26,29 +24,29 @@ public class Mesa {
 
     public void quitarCarta(Carta carta) {
         int posicion = -1;
+        int i = 0;
+        boolean encontrado = false;
         
-        // 1. Buscamos la carta usando el contador como límite
-        for (int i = 0; i < numCartas; i++) {
+        // 1. Buscamos la carta SIN usar break
+        while (i < numCartas && !encontrado) {
             if (cartasEnMesa[i].equals(carta)) {
                 posicion = i;
-                break;
+                encontrado = true;
+            } else {
+                i++;
             }
         }
 
-        // 2. Si existe, desplazamos los elementos para tapar el hueco
+        // 2. Si existe, desplazamos
         if (posicion != -1) {
-            for (int i = posicion; i < numCartas - 1; i++) {
-                cartasEnMesa[i] = cartasEnMesa[i + 1];
+            for (int j = posicion; j < numCartas - 1; j++) {
+                cartasEnMesa[j] = cartasEnMesa[j + 1];
             }
-            // Solo bajamos el contador.
-            // NO hacemos cartasEnMesa[numCartas-1] = null; <- PROHIBIDO
-            // La referencia vieja se queda ahí pero el contador la hace inaccesible.
             numCartas--;
         }
     }
 
     public Carta[] consultarCartasEnMesa() {
-        // Creamos un array nuevo del tamaño exacto del contador
         Carta[] resultado = new Carta[numCartas];
         for (int i = 0; i < numCartas; i++) {
             resultado[i] = cartasEnMesa[i];
