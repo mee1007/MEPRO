@@ -1,0 +1,227 @@
+================================================================================
+CHECKLIST FINAL DE ENTREGA - PRACTICA ESCOBA
+================================================================================
+
+Marca con [X] cada paso completado ANTES de comprimir y subir a UBUVirtual
+
+================================================================================
+FASE 1: VERIFICACION DEL CODIGO
+================================================================================
+
+[ ] He ejecutado: verificar.bat
+    └─ Resultado: TODO CORRECTO
+
+[ ] He ejecutado: test.bat
+    └─ Resultado: TODOS los tests PASAN
+
+[ ] He ejecutado: compilar.bat
+    └─ Resultado: Compilación EXITOSA
+
+[ ] He ejecutado: documentar.bat
+    └─ Resultado: Carpeta /doc generada correctamente
+
+[ ] He abierto: doc/index.html
+    └─ La documentación se ve correctamente
+
+[ ] He verificado que NO existe: src/module-info.java
+    └─ Si existe, ELIMINARLO
+
+[ ] Todos mis archivos .java tienen:
+    [ ] Encoding UTF-8
+    [ ] Nombres y apellidos en la cabecera
+    [ ] Código correctamente indentado
+    [ ] Comentarios JavaDoc completos
+
+================================================================================
+FASE 2: CAPTURAS DE PANTALLA
+================================================================================
+
+[ ] CAPTURA 1: 01-eclipse-pantalla-completa.png
+    [ ] Muestra Eclipse con las 4 vistas (Debug, Código, Variables, Console)
+    [ ] Se ve el breakpoint activado en procesarJugada
+    [ ] Variables visibles en la vista
+    [ ] Tamaño < 250 KB
+
+[ ] CAPTURA 2: 02-variables-expandidas.png
+    [ ] Vista Variables maximizada
+    [ ] TODAS las variables expandidas (jugador, partida, bazas, etc.)
+    [ ] Se ve claramente que jugadores[1] tiene 3 bazas
+    [ ] Tamaño < 250 KB
+
+[ ] CAPTURA 3: 03-console-debug.png
+    [ ] Vista Console maximizada
+    [ ] Se ve el estado del juego hasta el momento de depuración
+    [ ] Texto legible
+    [ ] Tamaño < 250 KB
+
+[ ] CAPTURA 4: 04-visualvm-objetos.png
+    [ ] VisualVM mostrando tabla de clases
+    [ ] Filtro "escoba" aplicado
+    [ ] Se ven las clases: Baza, Jugador, Carta, Controlador, etc.
+    [ ] Se ve el número de instancias vivas
+    [ ] Tamaño < 250 KB
+
+[ ] CAPTURA 5: 05-escoba-reparto-inicial.png
+    [ ] Consola mostrando las 4 cartas iniciales
+    [ ] Mensaje "🎉 ¡¡¡ESCOBA para JUAN!!! 🎉" visible
+    [ ] Mensaje "🪧La mesa ha quedado vacía." visible
+    [ ] Turno de Juan con "Escobas conseguidas: 1"
+    [ ] Tamaño < 250 KB
+
+[ ] TODAS las capturas están en formato .png o .jpg
+
+[ ] He comprimido las imágenes si eran > 250 KB
+
+================================================================================
+FASE 3: DOCUMENTACION
+================================================================================
+
+[ ] He completado el archivo: leeme.txt
+    [ ] Nombres y apellidos de los autores escritos
+    [ ] Fecha de entrega añadida
+    [ ] Aclaraciones adicionales (si las hay)
+
+[ ] He revisado que los nombres de archivo son correctos:
+    [ ] documentar.bat (nombre correcto)
+    [ ] ejecutar.bat (nombre correcto)
+    [ ] leeme.txt (nombre correcto)
+
+================================================================================
+FASE 4: ESTRUCTURA DE DIRECTORIOS
+================================================================================
+
+Verifico que MI proyecto tiene esta estructura:
+
+[ ] /src (con todos los .java)
+    [ ] /escoba
+        [ ] AplicacionEscoba.java
+        [ ] package-info.java
+        [ ] /modelo (con Baza.java, Jugador.java, etc.)
+        [ ] /control (con Controlador.java)
+        [ ] /vista (con VistaConsola.java)
+
+[ ] /bin (generado con compilar.bat)
+    [ ] Contiene archivos .class
+
+[ ] /doc (generado con documentar.bat)
+    [ ] Contiene index.html y resto de documentación
+
+[ ] /images
+    [ ] Contiene las 5 capturas con los nombres correctos
+
+[ ] Archivos en la raíz:
+    [ ] leeme.txt
+    [ ] documentar.bat
+    [ ] ejecutar.bat
+
+================================================================================
+FASE 5: LIMPIEZA PRE-ENTREGA
+================================================================================
+
+[ ] He ELIMINADO la carpeta /lib
+    └─ Los profesores ya la tienen
+
+[ ] He ELIMINADO la carpeta /test
+    └─ Los profesores ya la tienen
+
+[ ] He ELIMINADO estos archivos (si existen):
+    [ ] compilar.bat
+    [ ] test.bat
+    [ ] verificar.bat
+    [ ] INSTRUCCIONES_CAPTURAS.txt
+    [ ] GUIA_DEPURACION_ECLIPSE.txt
+    [ ] TIPS_ESCOBA_INICIAL.txt
+    [ ] RESUMEN_IMPLEMENTACION.txt
+    [ ] CHECKLIST_ENTREGA.txt (este archivo)
+
+[ ] He ELIMINADO archivos de configuración de Eclipse:
+    [ ] .project
+    [ ] .classpath
+    [ ] .settings/
+
+[ ] NO existe archivo: src/module-info.java
+
+================================================================================
+FASE 6: COMPRESION Y NOMBRE
+================================================================================
+
+[ ] He comprimido TODO el proyecto en un archivo .zip
+
+[ ] El nombre del .zip es CORRECTO:
+    
+    Formato: Nombre Apellido-Nombre Apellido.zip
+    (Sin tildes, con guión entre los dos nombres si es en pareja)
+    
+    Ejemplos:
+    - Individual: Maria Garcia.zip
+    - Pareja: Maria Garcia-Pedro Fernandez.zip
+    
+    MI ARCHIVO SE LLAMA: ___________________________________.zip
+
+[ ] El tamaño del .zip es menor que el límite de UBUVirtual
+
+[ ] He descomprimido el .zip para verificar que está TODO correcto
+
+================================================================================
+FASE 7: ENTREGA EN UBUVIRTUAL
+================================================================================
+
+[ ] He iniciado sesión en UBUVirtual
+
+[ ] He localizado la tarea:
+    [MP] Entrega de Práctica Obligatoria 1 – EPO1-2C
+
+[ ] He subido el archivo .zip
+
+[ ] He verificado que la subida fue exitosa
+
+[ ] Si es EN PAREJA:
+    [ ] Mi pareja también ha subido el MISMO archivo
+    [ ] He verificado que ambos archivos son IDÉNTICOS
+
+================================================================================
+FASE 8: VERIFICACION POST-ENTREGA
+================================================================================
+
+[ ] He descargado mi archivo desde UBUVirtual
+
+[ ] He descomprimido y verificado que está completo
+
+[ ] He guardado una copia de seguridad en otro lugar
+
+[ ] Fecha de entrega: _______________
+
+[ ] Hora de entrega: _______________
+
+================================================================================
+DECLARACION DE ORIGINALIDAD
+================================================================================
+
+Declaro que:
+
+[ ] El código ha sido escrito POR MI (o por mi pareja)
+
+[ ] NO he utilizado código generado por IA
+
+[ ] NO he copiado código de otros compañeros
+
+[ ] He respetado todas las normas del enunciado
+
+[ ] Entiendo las consecuencias académicas del plagio
+
+Firma (mental): _______________________________
+
+================================================================================
+¡ENTREGA COMPLETADA!
+================================================================================
+
+Si has marcado TODAS las casillas, ¡ENHORABUENA! 🎉
+
+Tu práctica está lista para ser evaluada.
+
+IMPORTANTE: Guarda este checklist como referencia para futuras prácticas.
+
+================================================================================
+Fecha de verificación: _______________
+Hora: _______________
+================================================================================

@@ -1,0 +1,76 @@
+================================================================================
+JUEGO DE LA ESCOBA - PRACTICA OBLIGATORIA 1 - SEGUNDA CONVOCATORIA
+================================================================================
+
+AUTORES:
+--------
+[Escribir aquí nombres y apellidos de los autores]
+
+DESCRIPCION:
+------------
+Implementación completa del juego de la Escoba en Java siguiendo el patrón
+Modelo-Vista-Controlador (MVC).
+
+CAMBIOS DE SEGUNDA CONVOCATORIA IMPLEMENTADOS:
+-----------------------------------------------
+1. Escoba en reparto inicial: Si las 4 cartas iniciales suman 15, se considera
+   escoba y se asigna al primer jugador.
+
+2. Cartas restantes sin sietes: Al final de la partida, las cartas que quedan
+   en la mesa se asignan al último jugador que hizo baza, pero los sietes NO
+   se incluyen en esta baza final y se descartan.
+
+3. Asignación por defecto: Si ningún jugador ganó una baza, las cartas restantes
+   (sin sietes) se asignan al primer jugador.
+
+INSTRUCCIONES DE USO:
+---------------------
+
+1. COMPILAR:
+   Ejecutar: compilar.bat
+   Este script compilará todos los archivos .java y generará los .class en /bin
+
+2. EJECUTAR:
+   Ejecutar: ejecutar.bat
+   Este script lanzará el juego en modo consola
+
+3. GENERAR DOCUMENTACION:
+   Ejecutar: documentar.bat
+   Este script generará la documentación JavaDoc en /doc
+
+4. EJECUTAR TESTS:
+   Ejecutar: test.bat
+   Este script compilará y ejecutará todos los tests JUnit
+
+ESTRUCTURA DE DIRECTORIOS:
+---------------------------
+/src        - Código fuente Java
+/bin        - Archivos .class compilados (generado automáticamente)
+/doc        - Documentación JavaDoc (generado automáticamente)
+/lib        - Bibliotecas externas (JUnit, Hamcrest, JColor)
+/test       - Tests JUnit
+/images     - Capturas de pantalla (depuración, monitorización, ejecución)
+
+REQUISITOS:
+-----------
+- JDK 24.0.2 o superior
+- Variable PATH configurada con acceso a javac, java y javadoc
+
+NOTAS ADICIONALES:
+------------------
+- Todos los archivos fuente están codificados en UTF-8
+- Se han implementado todos los métodos solicitados en el enunciado
+- Los tests de signaturas deben pasar al 100%
+- El código sigue las convenciones de nomenclatura de Java
+- Se incluyen comentarios JavaDoc en todas las clases y métodos públicos
+- No se utiliza ArrayList ni colecciones de java.util (solo arrays)
+- No se usa sintaxis de lambdas ni streams (solo hasta Tema 4)
+
+ACLARACIONES:
+-------------
+[Incluir aquí cualquier aclaración adicional que se considere necesaria
+para el profesorado]
+
+================================================================================
+Fecha de entrega: [Completar con la fecha]
+================================================================================

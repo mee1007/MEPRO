@@ -1,0 +1,176 @@
+================================================================================
+INSTRUCCIONES PARA REALIZAR LAS CAPTURAS DE PANTALLA
+================================================================================
+
+IMPORTANTE: Debes realizar 5 capturas en total y guardarlas en la carpeta /images
+con los nombres indicados. Formato: .png o .jpg (tamaño máximo 250 KB cada una)
+
+================================================================================
+CAPTURA 1: DEPURACIÓN - PANTALLA COMPLETA DE ECLIPSE
+================================================================================
+
+OBJETIVO:
+Capturar Eclipse en el momento exacto en que el SEGUNDO JUGADOR acumula su
+TERCERA BAZA.
+
+PASOS:
+
+1. Abrir Eclipse con el proyecto cargado
+
+2. Abrir la clase Controlador.java
+
+3. Localizar el método procesarJugada (línea ~155 aproximadamente)
+
+4. Hacer clic derecho en la línea donde se agrega la baza al jugador:
+   jugador.agregarBaza(baza);
+   
+5. Seleccionar: Toggle Breakpoint → Properties
+
+6. En la ventana de propiedades del breakpoint:
+   - Marcar: "Conditional"
+   - Escribir en la condición:
+     jugador.equals(partida.obtenerJugadores()[1]) && jugador.consultarBazas().length == 3
+   
+7. Hacer clic derecho en AplicacionEscoba.java → Debug As → Java Application
+
+8. Jugar hasta que se detenga la ejecución (cuando jugador 2 complete su 3ª baza)
+
+9. Cuando se detenga, organizar las vistas de Eclipse así:
+   - Izquierda: Vista Debug
+   - Centro: Código fuente de Controlador.java (donde se detuvo)
+   - Arriba derecha: Vista Variables
+   - Abajo: Vista Console
+
+10. Capturar TODA la pantalla de Eclipse
+
+NOMBRE DEL ARCHIVO: 01-eclipse-pantalla-completa.png
+
+================================================================================
+CAPTURA 2: DEPURACIÓN - VISTA VARIABLES MAXIMIZADA
+================================================================================
+
+OBJETIVO:
+Expandir todas las variables y mostrar el estado de los objetos.
+
+PASOS:
+
+1. Con la ejecución todavía detenida en el mismo punto...
+
+2. Hacer doble clic en la pestaña "Variables" para maximizarla
+
+3. Expandir TODAS las variables locales haciendo clic en los triángulos:
+   - Expandir "jugador"
+   - Expandir "cartaJugada"
+   - Expandir "cartasRetiradas" (y cada elemento del array)
+   - Expandir "baza" (y su contenido)
+   - Expandir "this" → partida → jugadores[0] y jugadores[1]
+   - Expandir todos los arrays que veas
+
+4. Capturar la vista Variables maximizada con TODO expandido
+
+NOMBRE DEL ARCHIVO: 02-variables-expandidas.png
+
+================================================================================
+CAPTURA 3: DEPURACIÓN - VISTA CONSOLE MAXIMIZADA
+================================================================================
+
+OBJETIVO:
+Mostrar la salida a consola en el momento de la depuración.
+
+PASOS:
+
+1. Con la ejecución todavía detenida...
+
+2. Hacer doble clic en la pestaña "Console" para maximizarla
+
+3. Capturar TODA la vista Console mostrando el estado del juego hasta ese momento
+
+NOMBRE DEL ARCHIVO: 03-console-debug.png
+
+================================================================================
+CAPTURA 4: MONITORIZACIÓN CON VISUALVM
+================================================================================
+
+OBJETIVO:
+Capturar el número de objetos vivos en el momento de la depuración.
+
+PASOS:
+
+1. Con la ejecución TODAVÍA DETENIDA en Eclipse...
+
+2. Abrir VisualVM (desde línea de comandos: jvisualvm)
+
+3. En el árbol de la izquierda, seleccionar el proceso de Java (AplicacionEscoba)
+
+4. Hacer clic en la pestaña "Monitor"
+
+5. Hacer clic en el botón "Perform GC" (recolector de basura) para limpiar
+
+6. Ir a la pestaña "Sampler" → "Memory" → Botón "Memory"
+
+7. Esperar a que se cargue la tabla de clases
+
+8. En el campo de filtro (Filter), escribir: escoba
+   Esto filtrará solo las clases del paquete escoba
+
+9. Capturar la ventana de VisualVM mostrando:
+   - La tabla con las clases del paquete escoba
+   - El número de instancias vivas de cada clase
+   - El tamaño en memoria
+
+NOMBRE DEL ARCHIVO: 04-visualvm-objetos.png
+
+NOTA: Para detener la depuración después de hacer la captura:
+Eclipse → Botón cuadrado rojo (Terminate)
+
+================================================================================
+CAPTURA 5: EJECUCIÓN - ESCOBA EN REPARTO INICIAL
+================================================================================
+
+OBJETIVO:
+Capturar una ejecución donde se produzca una escoba al repartir las 4 cartas
+iniciales en la mesa (que sumen exactamente 15 puntos).
+
+PASOS:
+
+1. Ejecutar: ejecutar.bat (o desde Eclipse: Run As → Java Application)
+
+2. Si las 4 cartas iniciales NO suman 15:
+   - Cerrar la ejecución (Ctrl+C en consola o cerrar ventana)
+   - Volver a ejecutar ejecutar.bat
+   - REPETIR hasta que salga una escoba en el reparto inicial
+
+3. Cuando salga el mensaje:
+   "🎉 ¡¡¡ESCOBA para JUAN!!! 🎉"
+   "🪧La mesa ha quedado vacía."
+   ANTES de seguir jugando...
+
+4. Capturar la ventana de la consola mostrando:
+   - El reparto inicial
+   - El mensaje de escoba
+   - Las cartas de los jugadores
+
+NOMBRE DEL ARCHIVO: 05-escoba-reparto-inicial.png
+
+NOTA: Esta puede tardar varios intentos. Es normal. La probabilidad es baja
+pero eventualmente saldrá.
+
+================================================================================
+RESUMEN DE ARCHIVOS A ENTREGAR EN /images
+================================================================================
+
+1. 01-eclipse-pantalla-completa.png    (Pantalla completa de Eclipse)
+2. 02-variables-expandidas.png         (Vista Variables maximizada)
+3. 03-console-debug.png                (Vista Console en depuración)
+4. 04-visualvm-objetos.png             (VisualVM con objetos filtrados)
+5. 05-escoba-reparto-inicial.png       (Ejecución con escoba inicial)
+
+IMPORTANTE:
+- Resolución máxima recomendada: 1920x1080 píxeles
+- Tamaño máximo por imagen: 250 KB
+- Formato: .png o .jpg
+- Si las imágenes superan 250 KB, comprimirlas en:
+  https://www.iloveimg.com/es/comprimir-imagen
+  https://compressjpeg.com/es/
+
+================================================================================

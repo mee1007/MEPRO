@@ -1,0 +1,264 @@
+================================================================================
+GUIA RAPIDA DE DEPURACION EN ECLIPSE
+================================================================================
+
+OBJETIVO: Detener la ejecución cuando el SEGUNDO JUGADOR acumule su TERCERA BAZA
+
+================================================================================
+PASO A PASO DETALLADO
+================================================================================
+
+PREPARACION:
+-----------
+
+1. Abrir Eclipse
+
+2. Importar el proyecto:
+   File → Import → Existing Projects into Workspace
+   Seleccionar la carpeta del proyecto
+
+3. Asegurarse de que compila sin errores:
+   Project → Clean → Clean all projects
+
+4. Configurar el classpath (si es necesario):
+   - Clic derecho en el proyecto → Build Path → Configure Build Path
+   - Pestaña "Libraries" → Add JARs
+   - Añadir los 3 .jar de la carpeta /lib
+
+================================================================================
+CONFIGURAR EL BREAKPOINT CONDICIONAL
+================================================================================
+
+1. Abrir el archivo: src/escoba/control/Controlador.java
+
+2. Localizar el método procesarJugada
+
+3. Buscar la línea que dice:
+   jugador.agregarBaza(baza);
+   
+   (Está dentro del bloque if (cartasRetiradas.length > 0))
+
+4. Hacer clic en el margen izquierdo (barra gris) de esa línea
+   → Aparecerá un círculo azul (breakpoint)
+
+5. Hacer clic DERECHO sobre el círculo azul
+   → Seleccionar "Breakpoint Properties..."
+
+6. En la ventana que se abre:
+   ┌─────────────────────────────────────────────────┐
+   │ [✓] Conditional                                 │
+   │                                                 │
+   │ Suspends when:                                 │
+   │ ( ) Condition is 'true'                        │
+   │ (•) Value of condition changes                 │
+   │                                                 │
+   │ ┌─────────────────────────────────────────┐   │
+   │ │ jugador.equals(partida.obtenerJugadores │   │
+   │ │ ()[1]) && jugador.consultarBazas().leng │   │
+   │ │ th == 3                                  │   │
+   │ └─────────────────────────────────────────┘   │
+   └─────────────────────────────────────────────────┘
+
+   COPIAR EXACTAMENTE ESTA CONDICION:
+   
+   jugador.equals(partida.obtenerJugadores()[1]) && jugador.consultarBazas().length == 3
+
+7. Marcar el radio button: "Condition is 'true'"
+
+8. Click en "OK"
+
+9. VERIFICAR que el círculo azul ahora tiene un símbolo de "?" dentro
+   (indica que es condicional)
+
+================================================================================
+EJECUTAR EN MODO DEBUG
+================================================================================
+
+1. Clic derecho en AplicacionEscoba.java
+
+2. Seleccionar: Debug As → Java Application
+
+3. Si aparece un diálogo preguntando por cambiar de perspectiva:
+   → Click en "Switch" o "Remember my decision" + "Switch"
+
+4. Comenzará la ejecución del juego en la consola
+
+5. JUGAR NORMALMENTE:
+   - Introducir cartas a jugar
+   - Introducir cartas a retirar de la mesa
+   - Alternar turnos entre ambos jugadores
+
+6. Cuando el segundo jugador (María) complete su tercera baza:
+   → La ejecución se DETENDRÁ automáticamente
+   → Eclipse cambiará a la perspectiva de Debug
+   → La línea del breakpoint quedará resaltada
+
+================================================================================
+ORGANIZAR LAS VISTAS PARA LA CAPTURA 1
+================================================================================
+
+Una vez detenida la ejecución:
+
+1. VISTA DEBUG (Izquierda):
+   Window → Show View → Debug
+   Arrastrarla al lado izquierdo de la pantalla
+
+2. CODIGO FUENTE (Centro):
+   Ya debería estar visible mostrando Controlador.java
+   con la línea resaltada donde se detuvo
+
+3. VISTA VARIABLES (Arriba derecha):
+   Window → Show View → Variables
+   Arrastrarla arriba a la derecha
+
+4. VISTA CONSOLE (Abajo):
+   Ya debería estar visible
+   Si no: Window → Show View → Console
+
+DISPOSICION FINAL:
+┌──────────────────────────────────────────────────┐
+│ Debug      │ Controlador.java     │ Variables   │
+│            │                      │             │
+│            │  [código aquí]       │             │
+│            │  →jugador.agregarBaz │             │
+│            │                      │             │
+├────────────┴──────────────────────┴─────────────┤
+│ Console                                         │
+│ (salida del juego hasta el momento)             │
+└──────────────────────────────────────────────────┘
+
+5. CAPTURAR: Herramienta Recortes o tecla Windows + Shift + S
+   Guardar como: 01-eclipse-pantalla-completa.png
+
+================================================================================
+EXPANDIR VARIABLES PARA LA CAPTURA 2
+================================================================================
+
+1. Hacer DOBLE CLIC en la pestaña "Variables"
+   → Se maximizará
+
+2. Expandir TODO haciendo clic en los triángulos (▶):
+   
+   Variables
+   ▼ this (Controlador)
+     ▼ partida (Partida)
+       ▼ jugadores[0] (Jugador)
+         ▼ bazas[0] (Baza)
+           ▼ cartas[0] (Carta)
+         ▼ bazas[1] (Baza)
+       ▼ jugadores[1] (Jugador)  ← ESTE ES EL IMPORTANTE
+         ▼ bazas[0] (Baza)
+         ▼ bazas[1] (Baza)
+         ▼ bazas[2] (Baza)  ← DEBE TENER 3 BAZAS
+       ▼ mesa (Mesa)
+       ▼ baraja (Baraja)
+   ▼ jugador (Jugador)  ← ES jugadores[1]
+     ▼ mano
+     ▼ bazas (Array de 3 bazas)
+   ▼ cartaJugada (Carta)
+   ▼ cartasRetiradas (Array de Carta)
+     ▼ [0] (Carta)
+     ▼ [1] (Carta)
+     ...
+   ▼ baza (Baza)
+     ▼ cartas (Array)
+
+3. CAPTURAR toda la vista Variables maximizada
+   Guardar como: 02-variables-expandidas.png
+
+4. Hacer DOBLE CLIC otra vez en "Variables" para restaurar
+
+================================================================================
+MAXIMIZAR CONSOLE PARA LA CAPTURA 3
+================================================================================
+
+1. Hacer DOBLE CLIC en la pestaña "Console"
+   → Se maximizará
+
+2. VERIFICAR que se vea:
+   - Estado de las rondas jugadas
+   - Cartas en mano
+   - Cartas en mesa
+   - Mensajes de jugadas realizadas
+
+3. CAPTURAR toda la vista Console maximizada
+   Guardar como: 03-console-debug.png
+
+4. Hacer DOBLE CLIC otra vez en "Console" para restaurar
+
+================================================================================
+MONITORIZAR CON VISUALVM (CAPTURA 4)
+================================================================================
+
+**IMPORTANTE: La ejecución debe seguir DETENIDA en Eclipse**
+
+1. Abrir una terminal/cmd
+
+2. Ejecutar: jvisualvm
+   (O buscar "VisualVM" en el menú de inicio de Windows)
+
+3. En VisualVM, en el árbol de la izquierda:
+   Local → [Buscar el proceso de Java]
+   Algo como: "escoba.AplicacionEscoba"
+
+4. Hacer doble clic en el proceso
+
+5. Ir a la pestaña "Sampler"
+
+6. Botón "Memory" para comenzar a muestrear memoria
+
+7. Esperar unos segundos a que se cargue la tabla
+
+8. En el filtro (Filter), escribir: escoba
+
+9. VERIFICAR que aparezcan clases como:
+   - escoba.modelo.Baza
+   - escoba.modelo.Jugador
+   - escoba.modelo.Carta
+   - escoba.control.Controlador
+   - etc.
+
+10. Hacer clic en el botón "Perform GC" (recolector de basura)
+
+11. CAPTURAR la ventana completa de VisualVM
+    Guardar como: 04-visualvm-objetos.png
+
+================================================================================
+FINALIZAR DEPURACION
+================================================================================
+
+En Eclipse:
+
+1. Botón rojo cuadrado "Terminate" (o F2)
+
+2. Volver a la perspectiva Java:
+   Window → Perspective → Open Perspective → Java
+
+================================================================================
+ERRORES COMUNES Y SOLUCIONES
+================================================================================
+
+ERROR: "El breakpoint nunca se activa"
+SOLUCION:
+- Verificar que la condición esté bien escrita (copiar exactamente)
+- Verificar que está marcado "Condition is 'true'"
+- Asegurarse de jugar hasta que María (jugador 2) complete su 3ª baza
+
+ERROR: "No encuentro la vista Variables/Debug/Console"
+SOLUCION:
+- Window → Show View → [nombre de la vista]
+- Si no aparece en la lista: Window → Show View → Other...
+
+ERROR: "VisualVM no muestra mi aplicación"
+SOLUCION:
+- Asegurarse de que la aplicación sigue en ejecución (detenida en debug)
+- En VisualVM: File → Add JMX Connection → localhost:0
+- Reintentar ejecutar jvisualvm después de lanzar el debug
+
+ERROR: "Las variables aparecen pero no puedo expandirlas"
+SOLUCION:
+- Algunos objetos pueden tener valor null (normales)
+- Solo expande los que tengan triángulo ▶
+- Si algún array está vacío, no tendrá elementos para expandir
+
+================================================================================

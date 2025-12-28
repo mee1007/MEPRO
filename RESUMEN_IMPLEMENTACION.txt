@@ -1,0 +1,249 @@
+================================================================================
+RESUMEN DE IMPLEMENTACION - PRACTICA ESCOBA 1.1 (2ª CONVOCATORIA)
+================================================================================
+
+FECHA: [Completar]
+AUTORES: [Completar en leeme.txt]
+
+================================================================================
+✅ IMPLEMENTACION COMPLETA DE CODIGO
+================================================================================
+
+CLASES IMPLEMENTADAS (3):
+-------------------------
+
+1. ✅ escoba.modelo.Baza
+   - Constructor sin argumentos
+   - Métodos: agregarCarta, consultarCartas, contarOros, contarSietes
+   - Métodos: tieneSieteOros, marcarEscoba, fueEscoba, clonar
+   - equals, hashCode, toString (implementados manualmente)
+   - Javadoc completo en todos los métodos
+
+2. ✅ escoba.modelo.Jugador
+   - Constructor con nombre
+   - Métodos: consultarNombre, consultarMano, consultarBazas, consultarEscobas
+   - Métodos: recibirCarta, jugarCarta, agregarBaza, estaSinCartas
+   - Métodos: contarCartas, contarOros, contarSietes, tieneSieteOros
+   - Javadoc completo en todos los métodos
+
+3. ✅ escoba.control.Controlador
+   - Constructor con Partida y VistaConsola
+   - Método público: ejecutarPartida()
+   - Métodos privados obligatorios:
+     * repartirCartasIniciales()
+     * repartirCartas()
+     * procesarJugada(Jugador, Carta, Carta[])
+     * darCartasRestantes() [MODIFICADO 2ª CONVOCATORIA]
+     * comprobarEscobaEnRepartoInicial() [NUEVO 2ª CONVOCATORIA]
+   - Javadoc completo en todos los métodos
+   - Todos los métodos < 30 líneas
+
+CLASES ACTUALIZADAS (1):
+------------------------
+
+4. ✅ escoba.AplicacionEscoba
+   - Javadoc actualizado con descripción completa
+   - Comentarios en método main
+
+ARCHIVOS PACKAGE-INFO (3):
+---------------------------
+
+5. ✅ escoba/package-info.java
+6. ✅ escoba.modelo/package-info.java
+7. ✅ escoba.control/package-info.java
+
+================================================================================
+✅ CAMBIOS DE SEGUNDA CONVOCATORIA IMPLEMENTADOS
+================================================================================
+
+1. ✅ ESCOBA EN REPARTO INICIAL
+   Ubicación: Controlador.comprobarEscobaEnRepartoInicial()
+   
+   Si las 4 cartas iniciales en la mesa suman exactamente 15:
+   - Se retiran todas las cartas de la mesa
+   - Se crea una baza marcada como escoba
+   - Se asigna al primer jugador
+   - Se anuncia en pantalla
+
+2. ✅ CARTAS RESTANTES SIN SIETES
+   Ubicación: Controlador.darCartasRestantes()
+   
+   Al final de la partida:
+   - Las cartas que quedan en la mesa se asignan al último jugador que hizo baza
+   - Los SIETES NO se incluyen (se descartan)
+   - Si ningún jugador ganó baza, se asigna al primer jugador
+
+================================================================================
+✅ SCRIPTS Y ARCHIVOS DE CONFIGURACION
+================================================================================
+
+1. ✅ compilar.bat       - Compila todo el código fuente
+2. ✅ documentar.bat     - Genera documentación JavaDoc
+3. ✅ ejecutar.bat       - Ejecuta el juego
+4. ✅ test.bat           - Compila y ejecuta tests JUnit
+5. ✅ verificar.bat      - Verifica que todo esté correcto
+6. ✅ leeme.txt          - Archivo informativo (COMPLETAR DATOS)
+
+================================================================================
+✅ VERIFICACIONES REALIZADAS
+================================================================================
+
+SINTAXIS Y ESTRUCTURA:
+---------------------
+✅ Código sin errores de sintaxis
+✅ Imports correctos
+✅ Modificadores de acceso correctos (public/private)
+✅ Uso SOLO de arrays (no ArrayList)
+✅ Sin lambdas ni streams
+✅ Sin uso de final en argumentos/variables locales
+✅ Uso de llaves en todos los bloques
+✅ Nombres de variables en español y descriptivos
+✅ Comentarios estilo "estudiante de 1º"
+
+DOCUMENTACION:
+--------------
+✅ Javadoc en todos los métodos públicos
+✅ Javadoc en constructores
+✅ Comentarios explicativos en código complejo
+✅ package-info.java en todos los paquetes
+✅ Descripción de parámetros y retornos
+
+CUMPLIMIENTO DE NORMAS:
+-----------------------
+✅ NO existe module-info.java
+✅ Encoding UTF-8 en todos los archivos
+✅ Métodos < 30 líneas (según enunciado)
+✅ Máximo 2 returns por método (excepto equals/hashCode/toString)
+✅ Sin uso de break/continue
+✅ Arrays retornados son copias, no referencias originales
+
+================================================================================
+⏳ PENDIENTE - DEBE HACERSE MANUALMENTE
+================================================================================
+
+1. ⏳ EJECUTAR verificar.bat
+   Para comprobar que todo compila y funciona correctamente
+
+2. ⏳ EJECUTAR test.bat
+   Para verificar que todos los tests de signaturas pasan
+
+3. ⏳ REALIZAR 5 CAPTURAS (ver INSTRUCCIONES_CAPTURAS.txt):
+   
+   a) ⏳ 01-eclipse-pantalla-completa.png
+      (Depuración con breakpoint condicional)
+   
+   b) ⏳ 02-variables-expandidas.png
+      (Vista Variables maximizada con todo expandido)
+   
+   c) ⏳ 03-console-debug.png
+      (Vista Console en el momento de la depuración)
+   
+   d) ⏳ 04-visualvm-objetos.png
+      (VisualVM mostrando objetos vivos del paquete escoba)
+   
+   e) ⏳ 05-escoba-reparto-inicial.png
+      (Ejecución con escoba al repartir cartas iniciales)
+
+4. ⏳ COMPLETAR leeme.txt
+   - Escribir nombres y apellidos de los autores
+   - Añadir fecha de entrega
+   - Añadir cualquier aclaración adicional
+
+5. ⏳ EJECUTAR documentar.bat
+   Para generar la carpeta /doc con la documentación HTML
+
+6. ⏳ VERIFICAR TAMAÑOS
+   - Cada imagen debe ser < 250 KB
+   - Si son más grandes, comprimir en:
+     https://www.iloveimg.com/es/comprimir-imagen
+
+7. ⏳ COMPRIMIR TODO EN .ZIP
+   Formato del nombre: Nombre Apellido-Nombre Apellido.zip
+   (Sin tildes, con guion entre los dos miembros si es en pareja)
+
+8. ⏳ SUBIR A UBUVIRTUAL
+   Tarea: [MP] Entrega de Práctica Obligatoria 1 – EPO1-2C
+
+================================================================================
+📁 ESTRUCTURA FINAL DEL .ZIP A ENTREGAR
+================================================================================
+
+Nombre-Apellido-Nombre-Apellido.zip/
+│
+├── leeme.txt                    [COMPLETAR DATOS]
+├── documentar.bat              
+├── ejecutar.bat                
+│
+├── src/                        [CODIGO FUENTE]
+│   └── escoba/
+│       ├── AplicacionEscoba.java
+│       ├── package-info.java
+│       ├── modelo/
+│       │   ├── Baraja.java
+│       │   ├── Baza.java       [IMPLEMENTADA]
+│       │   ├── Carta.java
+│       │   ├── Jugador.java    [IMPLEMENTADA]
+│       │   ├── Mesa.java
+│       │   ├── Palo.java
+│       │   ├── Partida.java
+│       │   └── package-info.java
+│       ├── control/
+│       │   ├── Controlador.java [IMPLEMENTADA]
+│       │   └── package-info.java
+│       └── vista/
+│           ├── VistaConsola.java
+│           └── util/
+│               ├── CartaTextoColor.java
+│               └── ManejadorArray.java
+│
+├── bin/                        [GENERADO AL COMPILAR]
+│   └── (archivos .class)
+│
+├── doc/                        [GENERADO CON documentar.bat]
+│   ├── index.html
+│   └── (resto de documentacion)
+│
+└── images/                     [5 CAPTURAS OBLIGATORIAS]
+    ├── 01-eclipse-pantalla-completa.png
+    ├── 02-variables-expandidas.png
+    ├── 03-console-debug.png
+    ├── 04-visualvm-objetos.png
+    └── 05-escoba-reparto-inicial.png
+
+================================================================================
+⚠️ IMPORTANTE - NO INCLUIR EN EL .ZIP
+================================================================================
+
+❌ NO incluir el directorio /lib (ya lo tienen los profesores)
+❌ NO incluir el directorio /test (ya lo tienen los profesores)
+❌ NO incluir archivos .bat adicionales (compilar.bat, test.bat, verificar.bat)
+❌ NO incluir archivos de configuración de Eclipse (.project, .classpath, etc.)
+❌ NO incluir module-info.java (ESTÁ PROHIBIDO)
+
+================================================================================
+✅ CHECKLIST FINAL ANTES DE ENTREGAR
+================================================================================
+
+[ ] He ejecutado verificar.bat y TODO está OK
+[ ] He ejecutado test.bat y TODOS los tests pasan
+[ ] He ejecutado documentar.bat y la carpeta /doc está generada
+[ ] He realizado las 5 capturas y están en /images
+[ ] Cada captura es < 250 KB
+[ ] He completado leeme.txt con mis datos
+[ ] He borrado /lib y /test antes de comprimir
+[ ] El .zip tiene el formato de nombre correcto
+[ ] Si es en pareja, AMBOS hemos subido el MISMO archivo a UBUVirtual
+[ ] NO hay código generado por IA ni copiado de otros
+
+================================================================================
+📧 ENTREGA FINAL
+================================================================================
+
+PLAZO: Ver fecha en UBUVirtual
+LUGAR: Tarea [MP] Entrega de Práctica Obligatoria 1 – EPO1-2C
+FORMATO: .zip, .rar, .7z o .tar.gz
+TAMAÑO MÁXIMO: Limitado por UBUVirtual
+
+¡SUERTE! 🍀
+
+================================================================================

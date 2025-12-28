@@ -1,0 +1,209 @@
+================================================================================
+TIPS PARA CONSEGUIR LA CAPTURA DE ESCOBA EN REPARTO INICIAL
+================================================================================
+
+OBJETIVO: Capturar una ejecución donde las 4 cartas iniciales sumen exactamente 15
+
+================================================================================
+¿POR QUE ES DIFICIL?
+================================================================================
+
+La probabilidad de que 4 cartas aleatorias sumen exactamente 15 es baja.
+
+Estimación aproximada:
+- De las 40 cartas, hay muchas combinaciones posibles
+- Solo algunas suman 15
+- Probabilidad aproximada: ~2-5%
+
+CONCLUSION: Hay que intentarlo varias veces hasta que salga.
+
+================================================================================
+METODO RAPIDO: EJECUTAR MULTIPLES VECES
+================================================================================
+
+OPCION 1: Ejecutar desde consola (MAS RAPIDO)
+----------------------------------------------
+
+1. Abrir una terminal/cmd
+
+2. Ir a la carpeta del proyecto:
+   cd "ruta\al\proyecto"
+
+3. Ejecutar el script:
+   ejecutar.bat
+
+4. Observar las 4 cartas iniciales en la mesa
+
+5. SI NO suman 15:
+   - Pulsar Ctrl+C para terminar
+   - Volver a ejecutar: ejecutar.bat
+   - Repetir
+
+6. SI suman 15:
+   - Verás el mensaje: "🎉 ¡¡¡ESCOBA para JUAN!!! 🎉"
+   - SIN JUGAR NADA MAS, hacer la captura
+   - Guardar como: 05-escoba-reparto-inicial.png
+
+OPCION 2: Ejecutar desde Eclipse
+---------------------------------
+
+1. En Eclipse, clic derecho en AplicacionEscoba.java
+
+2. Run As → Java Application
+
+3. Observar las 4 cartas iniciales
+
+4. SI NO suman 15:
+   - Hacer clic en el botón rojo cuadrado (Terminate)
+   - Volver a ejecutar: Run As → Java Application
+   - Repetir
+
+5. SI suman 15:
+   - Hacer la captura inmediatamente
+   - Guardar como: 05-escoba-reparto-inicial.png
+
+================================================================================
+¿COMO SE VE UNA ESCOBA INICIAL?
+================================================================================
+
+Ejemplo de salida esperada:
+
+==============================
+Estado actual de la partida
+==============================
+Ronda: 1 Cartas actualmente en la baraja: 32
+Mesa:
+    [0]         [1]         [2]         [3]     
+┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
+│ 3       │ │ 4       │ │ 5       │ │ 3       │
+│         │ │         │ │         │ │         │
+│    ♠    │ │    ♦    │ │    ♣    │ │    ♥    │
+│         │ │         │ │         │ │         │
+│       3 │ │       4 │ │       5 │ │       3 │
+└─────────┘ └─────────┘ └─────────┘ └─────────┘
+
+🎉 ¡¡¡ESCOBA para JUAN!!! 🎉
+🪧La mesa ha quedado vacía.
+
+Turno de Juan- Escobas conseguidas: 1 - Bazas conseguidas: 1 - Cartas conseguidas: 4
+
+Cartas de Juan
+    [0]         [1]         [2]     
+┌─────────┐ ┌─────────┐ ┌─────────┐
+│ ...     │ │ ...     │ │ ...     │
+└─────────┘ └─────────┘ └─────────┘
+
+ESTE ES EL MOMENTO DE HACER LA CAPTURA!!!
+
+================================================================================
+COMBINACIONES QUE SUMAN 15
+================================================================================
+
+Algunos ejemplos (hay muchas más):
+
+- 7 + 4 + 3 + 1 = 15
+- 6 + 5 + 3 + 1 = 15
+- 5 + 4 + 4 + 2 = 15
+- 7 + 3 + 3 + 2 = 15
+- 6 + 4 + 3 + 2 = 15
+- 5 + 5 + 3 + 2 = 15
+- 7 + 5 + 2 + 1 = 15
+- 6 + 5 + 2 + 2 = 15
+- 10 + 3 + 1 + 1 = 15
+- 10 + 2 + 2 + 1 = 15
+
+Etc.
+
+================================================================================
+CONTADOR DE INTENTOS
+================================================================================
+
+Para no perder la cuenta, puedes anotar aquí:
+
+Intento  | Resultado
+---------|--------------------
+   1     | No suma 15
+   2     | No suma 15
+   3     | No suma 15
+   4     | No suma 15
+   5     | No suma 15
+   6     | No suma 15
+   7     | No suma 15
+   8     | No suma 15
+   9     | No suma 15
+   10    | No suma 15
+   ...   | ...
+
+Consejo: Ejecuta en bloques de 10 intentos, descansa, y vuelve a intentar.
+
+================================================================================
+ALTERNATIVA: MODIFICAR TEMPORALMENTE EL CODIGO
+================================================================================
+
+**SOLO SI LLEVAS MAS DE 50 INTENTOS SIN EXITO**
+
+Puedes modificar TEMPORALMENTE el código para forzar una escoba inicial:
+
+1. Abrir: src/escoba/modelo/Baraja.java
+
+2. Localizar el constructor Baraja()
+
+3. COMENTAR el código del constructor y AÑADIR:
+
+   public Baraja() {
+       cartas = new Carta[NUMERO_CARTAS];
+       
+       // TEMPORAL: Forzar escoba inicial
+       cartas[0] = new Carta(1, Palo.OROS, 7);
+       cartas[1] = new Carta(2, Palo.COPAS, 4);
+       cartas[2] = new Carta(3, Palo.ESPADAS, 3);
+       cartas[3] = new Carta(4, Palo.BASTOS, 1);
+       
+       // Rellenar el resto con cartas normales...
+       int clave = 5;
+       for (Palo palo : Palo.values()) {
+           for (int contador = 0; contador < NUMERO_CARTAS / Palo.values().length; contador++) {
+               if (clave <= NUMERO_CARTAS) {
+                   cartas[clave - 1] = new Carta(clave, palo, contador + 1);
+                   clave++;
+               }
+           }
+       }
+   }
+
+4. Compilar y ejecutar UNA VEZ para hacer la captura
+
+5. **MUY IMPORTANTE**: DESHACER ESTOS CAMBIOS antes de la entrega final
+   (Restaurar el código original de Baraja.java)
+
+================================================================================
+CONSEJOS GENERALES
+================================================================================
+
+✓ Ten paciencia, eventualmente saldrá
+✓ Ejecuta en bloques de 10-20 intentos
+✓ Toma descansos cada 30 minutos
+✓ Asegúrate de hacer la captura ANTES de seguir jugando
+✓ Verifica que la captura sea legible (< 250 KB)
+
+❌ NO modifiques el código permanentemente para forzar la escoba
+❌ NO entregues capturas falsas o editadas
+❌ NO te olvides de deshacer cambios temporales
+
+================================================================================
+VERIFICACION DE LA CAPTURA
+================================================================================
+
+Una captura válida debe mostrar:
+
+[ ] Las 4 cartas iniciales visibles en la mesa
+[ ] El mensaje "🎉 ¡¡¡ESCOBA para JUAN!!! 🎉"
+[ ] El mensaje "🪧La mesa ha quedado vacía."
+[ ] El turno de Juan con "Escobas conseguidas: 1"
+[ ] Las cartas en la mano de Juan (3 cartas)
+[ ] Tamaño < 250 KB
+[ ] Formato .png o .jpg
+
+Si cumple todo esto, ¡PERFECTO! 🎉
+
+================================================================================

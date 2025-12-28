@@ -1,0 +1,230 @@
+================================================================================
+INDICE DE ARCHIVOS CREADOS/MODIFICADOS
+================================================================================
+
+📅 Fecha de creación: [HOY]
+👨‍💻 Implementación completa de la Práctica Escoba 1.1 (2ª Convocatoria)
+
+================================================================================
+📦 CODIGO FUENTE IMPLEMENTADO (3 CLASES)
+================================================================================
+
+src/escoba/modelo/Baza.java
+├─ Constructor sin argumentos
+├─ agregarCarta, consultarCartas, contarOros, contarSietes
+├─ tieneSieteOros, marcarEscoba, fueEscoba, clonar
+├─ equals, hashCode, toString
+└─ Javadoc completo ✅
+
+src/escoba/modelo/Jugador.java
+├─ Constructor con nombre
+├─ consultarNombre, consultarMano, consultarBazas, consultarEscobas
+├─ recibirCarta, jugarCarta, agregarBaza, estaSinCartas
+├─ contarCartas, contarOros, contarSietes, tieneSieteOros
+└─ Javadoc completo ✅
+
+src/escoba/control/Controlador.java
+├─ Constructor con Partida y VistaConsola
+├─ ejecutarPartida() (método público)
+├─ repartirCartasIniciales, repartirCartas (métodos privados)
+├─ procesarJugada, darCartasRestantes, comprobarEscobaEnRepartoInicial
+└─ Javadoc completo ✅
+
+================================================================================
+📝 DOCUMENTACION ADICIONAL
+================================================================================
+
+src/escoba/package-info.java
+└─ Documentación del paquete raíz
+
+src/escoba/modelo/package-info.java
+└─ Documentación del paquete modelo
+
+src/escoba/control/package-info.java
+└─ Documentación del paquete control
+
+src/escoba/AplicacionEscoba.java
+└─ Actualizada con Javadoc completo
+
+================================================================================
+🔧 SCRIPTS DE AUTOMATIZACION
+================================================================================
+
+compilar.bat
+└─ Compila todo el código fuente a /bin
+
+documentar.bat ⭐ (OBLIGATORIO ENTREGAR)
+└─ Genera documentación JavaDoc en /doc
+
+ejecutar.bat ⭐ (OBLIGATORIO ENTREGAR)
+└─ Ejecuta el juego en modo consola
+
+test.bat
+└─ Compila y ejecuta tests JUnit
+
+verificar.bat
+└─ Verifica que todo está correcto pre-entrega
+
+================================================================================
+📚 GUIAS Y MANUALES
+================================================================================
+
+leeme.txt ⭐ (OBLIGATORIO ENTREGAR - COMPLETAR DATOS)
+└─ Archivo informativo con nombres, descripción y notas
+
+RESUMEN_EJECUTIVO.txt ⭐ (LEER PRIMERO)
+└─ Resumen de lo hecho y lo que falta por hacer
+
+INSTRUCCIONES_CAPTURAS.txt
+└─ Paso a paso detallado para las 5 capturas obligatorias
+
+GUIA_DEPURACION_ECLIPSE.txt
+└─ Cómo configurar el breakpoint condicional en Eclipse
+
+TIPS_ESCOBA_INICIAL.txt
+└─ Consejos para conseguir la captura de escoba en reparto inicial
+
+RESUMEN_IMPLEMENTACION.txt
+└─ Detalle técnico completo de la implementación
+
+CHECKLIST_ENTREGA.txt
+└─ Lista de verificación final antes de entregar
+
+================================================================================
+🎯 ARCHIVOS A ELIMINAR ANTES DE COMPRIMIR
+================================================================================
+
+Los siguientes archivos SON ÚTILES para ti, pero NO se deben entregar:
+
+❌ compilar.bat                    (script auxiliar)
+❌ test.bat                        (script auxiliar)
+❌ verificar.bat                   (script auxiliar)
+❌ RESUMEN_EJECUTIVO.txt           (esta guía)
+❌ INSTRUCCIONES_CAPTURAS.txt      (guía auxiliar)
+❌ GUIA_DEPURACION_ECLIPSE.txt     (guía auxiliar)
+❌ TIPS_ESCOBA_INICIAL.txt         (guía auxiliar)
+❌ RESUMEN_IMPLEMENTACION.txt      (guía auxiliar)
+❌ CHECKLIST_ENTREGA.txt           (guía auxiliar)
+
+================================================================================
+📂 ESTRUCTURA FINAL A ENTREGAR EN EL .ZIP
+================================================================================
+
+Tu-Nombre-Apellido.zip/
+│
+├── leeme.txt                  ⭐ COMPLETAR
+├── documentar.bat             ⭐ OBLIGATORIO
+├── ejecutar.bat               ⭐ OBLIGATORIO
+│
+├── src/                       ⭐ CODIGO FUENTE
+│   └── escoba/
+│       ├── AplicacionEscoba.java
+│       ├── package-info.java
+│       ├── modelo/
+│       │   ├── Baraja.java
+│       │   ├── Baza.java         ✅ IMPLEMENTADA
+│       │   ├── Carta.java
+│       │   ├── Jugador.java      ✅ IMPLEMENTADA
+│       │   ├── Mesa.java
+│       │   ├── Palo.java
+│       │   ├── Partida.java
+│       │   └── package-info.java
+│       ├── control/
+│       │   ├── Controlador.java  ✅ IMPLEMENTADA
+│       │   └── package-info.java
+│       └── vista/
+│           ├── VistaConsola.java
+│           └── util/
+│               ├── CartaTextoColor.java
+│               └── ManejadorArray.java
+│
+├── bin/                       ⭐ GENERADO CON compilar.bat
+│   └── (archivos .class)
+│
+├── doc/                       ⭐ GENERADO CON documentar.bat
+│   ├── index.html
+│   └── (resto documentación)
+│
+└── images/                    ⭐ LAS 5 CAPTURAS
+    ├── 01-eclipse-pantalla-completa.png
+    ├── 02-variables-expandidas.png
+    ├── 03-console-debug.png
+    ├── 04-visualvm-objetos.png
+    └── 05-escoba-reparto-inicial.png
+
+================================================================================
+✅ VERIFICACION RAPIDA
+================================================================================
+
+Para verificar que tienes todo:
+
+1. Ejecutar: verificar.bat
+   └─ Debe decir "TODO CORRECTO"
+
+2. Contar archivos en /images:
+   └─ Debe haber exactamente 5 imágenes
+
+3. Verificar que existe: doc/index.html
+   └─ La documentación fue generada
+
+4. Abrir: leeme.txt
+   └─ Verificar que están tus datos
+
+5. Verificar que NO existe: src/module-info.java
+   └─ Si existe, ELIMINARLO
+
+6. Verificar que NO existen: /lib y /test
+   └─ Deben estar eliminados antes de comprimir
+
+================================================================================
+🎓 CALIDAD DEL CODIGO
+================================================================================
+
+El código implementado cumple con:
+
+✅ Solo arrays (no ArrayList ni colecciones)
+✅ Sin lambdas ni streams (solo Tema 1-4)
+✅ Variables con nombres en español y descriptivos
+✅ Comentarios explicativos estilo estudiante
+✅ Javadoc completo en todos los métodos
+✅ Métodos < 30 líneas
+✅ Máximo 2 returns por método
+✅ Sin break/continue
+✅ Uso de llaves en todos los bloques
+✅ Encoding UTF-8
+✅ Sin uso de final en argumentos/variables locales
+
+================================================================================
+🚀 SIGUIENTES PASOS
+================================================================================
+
+1. Lee: RESUMEN_EJECUTIVO.txt
+   └─ Plan de acción con tiempos estimados
+
+2. Ejecuta: verificar.bat
+   └─ Comprueba que todo funciona
+
+3. Sigue: INSTRUCCIONES_CAPTURAS.txt
+   └─ Realiza las 5 capturas obligatorias
+
+4. Completa: leeme.txt
+   └─ Añade tus datos personales
+
+5. Usa: CHECKLIST_ENTREGA.txt
+   └─ Verifica que no falta nada
+
+6. Comprime y sube a UBUVirtual
+   └─ Tarea: [MP] Entrega de Práctica Obligatoria 1 – EPO1-2C
+
+================================================================================
+📞 SI TIENES DUDAS
+================================================================================
+
+1. Lee las guías creadas (están muy detalladas)
+2. Ejecuta verificar.bat para comprobar errores
+3. Revisa CHECKLIST_ENTREGA.txt
+4. Consulta al profesor en tutorías
+
+================================================================================
+✨ ¡BUENA SUERTE CON LA ENTREGA!
+================================================================================
